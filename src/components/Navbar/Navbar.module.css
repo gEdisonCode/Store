@@ -3,7 +3,6 @@
     justify-content: space-between;
     align-items: center;
     padding: 2rem;
-    border: 1px solid rgb(46, 46, 46);
     height: 6rem;
     text-transform: uppercase;
 }
@@ -28,4 +27,21 @@
 
 .button:hover {
     background-color: crimson;
+}
+
+.modalContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: auto;
+    height: auto;
+    text-align: center;
+    margin: 30dvh auto;
+    font-size: 2rem;
+    padding: 2rem;
+}
+
+.textModal {
+    max-width: 50%;
+    margin: auto;
 }
