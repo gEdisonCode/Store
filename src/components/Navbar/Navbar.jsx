@@ -24,10 +24,10 @@ function Navbar() {
         </div>
         <div className={style.buttons}>
           <button onClick={darkmode} className={style.button}>
-            Theme
+            {mode === false ? "☾" : "☀"}
           </button>
           <button className={style.button} onClick={showModal}>
-            About
+            ✉
           </button>
         </div>
       </nav>

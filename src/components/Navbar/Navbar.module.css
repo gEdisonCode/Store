@@ -13,7 +13,8 @@
 }
 
 .button {
-    padding: 1.2rem;
+    width: 6rem;
+    padding: 1rem;
     margin-left: 1rem;
     text-transform: uppercase;
     border: none;
@@ -32,6 +33,7 @@
 .modalContainer {
     display: flex;
     flex-direction: column;
+    position: absolute;
     width: 100%;
     margin: auto;
     height: auto;
@@ -39,6 +41,8 @@
     margin: 30dvh auto;
     font-size: 2rem;
     padding: 2rem;
+    background-color: rgba(0, 0, 0, 0.493);
+    backdrop-filter: blur(10px);
 }
 
 .textModal {
