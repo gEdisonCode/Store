@@ -1,10 +1,13 @@
 .mainContainer {
+    max-width: 1400px;
+    margin: auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     height: 90vh;
     width: 100%;
+    overflow: scroll;
 }
 
 .cardContainer {
@@ -22,6 +25,7 @@
 .imgContainer {
     height: 70%;
     overflow: hidden;
+
 }
 
 .img {
@@ -32,17 +36,32 @@
 
 .textContainer {
     width: 100%;
-    height: 50%;
+    height: 40%;
     text-align: center;
     align-content: center;
+    line-height: 3rem;
+
 }
 
+.title {
+    font-size: 2em;
+    font-weight: 600;
+}
+
+.category {
+    font-size: 1.5em;
+}
+
+.price {
+    font-size: 1.5em;
+    ;
+}
 
 
 .checkButton {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-content: center;
     padding: 0.5rem;
     width: 3.0rem;
     margin: auto;
@@ -51,10 +70,5 @@
     border: none;
     font-size: 1.5rem;
     font-weight: 600;
-    color: white;
-}
-
-.checkButton:hover {
-    background-color: rgb(184, 19, 41);
     color: white;
 }

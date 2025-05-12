@@ -41,9 +41,9 @@ function Header() {
                 <img src={item.image} alt="img" className={style.img} />
               </div>
               <div className={style.textContainer}>
-                <h1>{item.title}</h1>
-                <h2>{store[index].category}</h2>
-                <h3>{store[index].price} $</h3>
+                <h1 className={style.title}>{item.title}</h1>
+                <h2 className={style.category}>{store[index].category}</h2>
+                <h3 className={style.price}>{store[index].price} $</h3>
               </div>
               {check.includes(item.id) && (
                 <button className={style.checkButton}>✓</button>
