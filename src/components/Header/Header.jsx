@@ -2,12 +2,15 @@ import style from "./Header.module.css";
 import { useState, useEffect } from "react";
 
 function Header() {
-  const [check, setCheck] = useState(false);
+  const [check, setCheck] = useState([]);
   const [store, setStore] = useState([]);
- 
 
-  function handleCheck() {
-    setCheck(!check);
+  function handleCheck(checkList) {
+    setCheck((element) =>
+      element.includes(checkList)
+        ? element.filter((id) => id !== checkList)
+        : [...check, checkList]
+    );
   }
 
   useEffect(() => {
@@ -16,7 +19,6 @@ function Header() {
         const res = await fetch("https://fakestoreapi.com/products");
         const data = await res.json();
         setStore(data);
-        
       } catch (error) {
         console.error("error");
       }
@@ -29,19 +31,25 @@ function Header() {
   return (
     <>
       <div className={style.mainContainer}>
-        {store && store.slice(0,4).map((item, index) =>
-          <div className={style.cardContainer} onClick={() => handleCheck(index)} key={item.id}>
-            <div className={style.imgContainer}>
-              <img src={store[index].image} alt="img" className={style.img} />
+        {store &&
+          store.slice(0, 4).map((item, index) => (
+            <div
+              className={style.cardContainer}
+              onClick={() => handleCheck(item.id)}
+              key={item.id}>
+              <div className={style.imgContainer}>
+                <img src={item.image} alt="img" className={style.img} />
+              </div>
+              <div className={style.textContainer}>
+                <h1>{item.title}</h1>
+                <h2>{store[index].category}</h2>
+                <h3>{store[index].price} $</h3>
+              </div>
+              {check.includes(item.id) && (
+                <button className={style.checkButton}>✓</button>
+              )}
             </div>
-            <div className={style.textContainer}>
-              <h1>{store[index].title}</h1>
-              <h2>{store[index].category}</h2>
-              <h3>{store[index].price} $</h3>
-            </div>
-            {check === true && <button className={style.checkButton}>✓</button>}
-          </div>
-        )}
+          ))}
       </div>
     </>
   );
