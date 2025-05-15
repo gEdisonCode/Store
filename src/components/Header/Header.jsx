@@ -4,7 +4,8 @@ import { useState, useEffect } from "react";
 function Header() {
   const [check, setCheck] = useState([]);
   const [store, setStore] = useState([]);
-  const [filter, setFilter] = useState([])
+  const [filter, setFilter] = useState([]);
+  const [showMenu, setShowMenu] = useState(false);
 
   function handleCheck(checkList) {
     setCheck((element) =>
@@ -14,26 +15,31 @@ function Header() {
     );
   }
 
-
   function filterMan() {
-    const man = store.filter((item) => item.category === "men's clothing")
-    setFilter(man)
+    const man = store.filter((item) => item.category === "men's clothing");
+    setFilter(man);
+    handleMenu()
   }
 
   function filterWomen() {
-    const women = store.filter((item) => item.category === "women's clothing")
-    setFilter(women)
+    const women = store.filter((item) => item.category === "women's clothing");
+    setFilter(women);
+    handleMenu()
   }
 
   function filterJewlery() {
-    const jewlery = store.filter((item) => item.category === "jewelery")
-    setFilter(jewlery)
+    const jewlery = store.filter((item) => item.category === "jewelery");
+    setFilter(jewlery);
+    handleMenu()
   }
-function filterTech() {
-  const tech = store.filter((item) => item.category === "electronics")
-  setFilter(tech)
-}
-
+  function filterTech() {
+    const tech = store.filter((item) => item.category === "electronics");
+    setFilter(tech);
+    handleMenu()
+  }
+  function handleMenu() {
+    setShowMenu(!showMenu);
+  }
   useEffect(() => {
     async function storeFetch() {
       try {
@@ -50,17 +56,38 @@ function filterTech() {
   if (!store) throw new Error("error");
 
 
+
   return (
     <>
-   
       <div className={style.mainContainer}>
-      
-         <div className={style.storeMenu}>
-          <button className={style.menuButton} onClick={filterMan}>Men's clothing</button>
-          <button className={style.menuButton} onClick={filterWomen}>Women's clothing</button>
-          <button className={style.menuButton} onClick={filterJewlery}>Jewelery</button>
-          <button className={style.menuButton} onClick={filterTech}>Electronics</button>
-         </div>
+        <div className={style.menuContainer}>
+          <div>
+            <button className={style.cart}>cart</button>
+          </div>
+
+          <button onClick={handleMenu} className={style.showMenu}>
+            Category
+          </button>
+        </div>
+
+        {showMenu === true && (
+          <div className={style.storeMenu}>
+            <div className={style.menuButton}>
+              <button className={style.button} onClick={filterMan}>
+                Men's clothing
+              </button>
+              <button className={style.button} onClick={filterWomen}>
+                Women's clothing
+              </button>
+              <button className={style.button} onClick={filterJewlery}>
+                Jewelery
+              </button>
+              <button className={style.button} onClick={filterTech}>
+                Electronics
+              </button>
+            </div>
+          </div>
+        )}
 
         {filter &&
           filter.slice(0, 4).map((item, index) => (
