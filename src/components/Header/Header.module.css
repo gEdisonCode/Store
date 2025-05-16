@@ -119,3 +119,15 @@ font-weight: 600;
 letter-spacing: 1.5px;
 cursor: pointer;
 }
+
+.cartContainer {
+    position: absolute;
+    height: auto;
+    width:20rem;
+    background-color: black;
+}
+
+.cartContent {
+    color: white;
+    font-size: 2rem;
+}

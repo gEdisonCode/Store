@@ -6,40 +6,45 @@ function Header() {
   const [store, setStore] = useState([]);
   const [filter, setFilter] = useState([]);
   const [showMenu, setShowMenu] = useState(false);
+  const [showCart, setShowCart] = useState(false);
 
-  function handleCheck(checkList) {
+  function handleCheck(checked) {
     setCheck((element) =>
-      element.includes(checkList)
-        ? element.filter((id) => id !== checkList)
-        : [...check, checkList]
+      element.includes(checked)
+        ? element.filter((id) => id !== checked)
+        : [...check, checked]
     );
   }
 
   function filterMan() {
     const man = store.filter((item) => item.category === "men's clothing");
     setFilter(man);
-    handleMenu()
+    handleMenu();
   }
 
   function filterWomen() {
     const women = store.filter((item) => item.category === "women's clothing");
     setFilter(women);
-    handleMenu()
+    handleMenu();
   }
 
   function filterJewlery() {
     const jewlery = store.filter((item) => item.category === "jewelery");
     setFilter(jewlery);
-    handleMenu()
+    handleMenu();
   }
   function filterTech() {
     const tech = store.filter((item) => item.category === "electronics");
     setFilter(tech);
-    handleMenu()
+    handleMenu();
   }
   function handleMenu() {
     setShowMenu(!showMenu);
   }
+  function handleCart() {
+    setShowCart(!showCart);
+  }
+
   useEffect(() => {
     async function storeFetch() {
       try {
@@ -55,14 +60,14 @@ function Header() {
   }, []);
   if (!store) throw new Error("error");
 
-
-
   return (
     <>
       <div className={style.mainContainer}>
         <div className={style.menuContainer}>
           <div>
-            <button className={style.cart}>cart</button>
+            <button className={style.cart} onClick={handleCart}>
+              cart
+            </button>
           </div>
 
           <button onClick={handleMenu} className={style.showMenu}>
@@ -70,6 +75,17 @@ function Header() {
           </button>
         </div>
 
+        {showCart === true && (
+          <div className={style.cartContainer}>
+            {check.map((item, index) => (
+              <p key={index} className={style.cartContent}>
+                {item.title}
+              </p>
+            ))}
+          </div>
+        )}
+
+        
         {showMenu === true && (
           <div className={style.storeMenu}>
             <div className={style.menuButton}>
@@ -88,12 +104,11 @@ function Header() {
             </div>
           </div>
         )}
-
         {filter &&
           filter.slice(0, 4).map((item, index) => (
             <div
               className={style.cardContainer}
-              onClick={() => handleCheck(item.id)}
+              onClick={() => handleCheck(item)}
               key={item.id}>
               <div className={style.imgContainer}>
                 <img src={item.image} alt="img" className={style.img} />
@@ -103,7 +118,7 @@ function Header() {
                 <h2 className={style.category}>{store[index].category}</h2>
                 <h3 className={style.price}>{store[index].price} $</h3>
               </div>
-              {check.includes(item.id) && (
+              {check.some((element) => element.id === item.id) && (
                 <button className={style.checkButton}>✓</button>
               )}
             </div>
