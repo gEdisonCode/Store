@@ -14,6 +14,12 @@ function Header() {
         ? element.filter((id) => id !== checked)
         : [...check, checked]
     );
+     setShowMenu(false)
+     setShowCart(false)
+  }
+
+  function removeCart(element) {
+    setCheck(check.filter((item) => item.id !== element.id))
   }
 
   function filterMan() {
@@ -40,9 +46,11 @@ function Header() {
   }
   function handleMenu() {
     setShowMenu(!showMenu);
+    setShowCart(false)
   }
   function handleCart() {
     setShowCart(!showCart);
+    setShowMenu(false)
   }
 
   useEffect(() => {
@@ -68,6 +76,15 @@ function Header() {
             <button className={style.cart} onClick={handleCart}>
               cart
             </button>
+                    {showCart === true && (
+          <div className={style.cartContainer}>
+            {check.map((item, index) => (
+              <p key={index} className={style.cartContent} onClick={() => removeCart(item)}>
+                {`${item.title}`.slice(0,15)}
+              </p>
+            ))}
+          </div>
+        )}
           </div>
 
           <button onClick={handleMenu} className={style.showMenu}>
@@ -75,17 +92,8 @@ function Header() {
           </button>
         </div>
 
-        {showCart === true && (
-          <div className={style.cartContainer}>
-            {check.map((item, index) => (
-              <p key={index} className={style.cartContent}>
-                {item.title}
-              </p>
-            ))}
-          </div>
-        )}
 
-        
+
         {showMenu === true && (
           <div className={style.storeMenu}>
             <div className={style.menuButton}>

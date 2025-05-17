@@ -33,7 +33,7 @@ function Navbar() {
       </nav>
 
       {modal && (
-        <div className={style.modalContainer}>
+        <div className={style.modalContainer} onClick={showModal}>
             <div className={style.textModal}></div>
           <h1>Contact: XXX.XXX.XXX</h1>
           <h2>Email: XXXXX@XXX.com</h2>
