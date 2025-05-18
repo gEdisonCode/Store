@@ -14,19 +14,23 @@
 .cardContainer {
     width: 20vw;
     min-width: 30rem;
-    height: 60vh;
+    height: 57vh;
     min-height: 40rem;
     display: flex;
     flex-direction: column;
-    padding: 1rem;
     transition: 1s;
     cursor: pointer;
     margin: 0 auto;
+    margin-bottom: 2.5em;
+    border: 4px solid var(--hover--color);
+    border-radius: 2px;
+    
 }
 
 .imgContainer {
     height: 70%;
     overflow: hidden;
+    border-bottom: 4px solid var(--hover--color)
 }
 
 .img {
@@ -41,21 +45,31 @@
     text-align: center;
     align-content: center;
     line-height: 3rem;
-
+    
 }
 
 .title {
+    width: 70%;
+    margin: auto;
     font-size: 2em;
     font-weight: 600;
+    border-bottom: 1px dashed var(--text--color);
+    text-transform: uppercase;
 }
 
 .category {
     font-size: 1.5em;
+    width: 70%;
+    margin: auto;
+    border-bottom: 1px dashed var(--text--color);
 }
 
 .price {
-    font-size: 1.5em;
-    ;
+    width: 70%;
+    margin: auto;
+    font-size: 1.7rem;
+    font-weight: 600;
+
 }
 
 .checkButton {
@@ -64,8 +78,8 @@
     align-content: center;
     padding: 0.5rem;
     width: 3.0rem;
-    margin: auto;
-    background-color: rgb(84, 202, 55);
+    margin: 1rem auto;
+    background-color: var(--hover--color);
     border-radius: 50%;
     border: none;
     font-size: 1.5rem;
@@ -77,6 +91,7 @@
     display: flex;
     position: absolute;
     top: 16em;
+    margin: auto;
 }
 
 .menuButton {
@@ -84,17 +99,27 @@
     flex-direction: column;
     width: 20rem;
     height: auto;
-    border-radius: 3px;
+    border-radius: 5px;
     cursor: pointer;
+    background-color: var(--background--color);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.637);
+    
 }
 
 .button {
+    background-color: var(--background--color);
     width: 20rem;
     padding: 2rem;
     align-items: center;
     border-radius: 3px;
     cursor: pointer;
     font-size: 2rem;
+    border: none;
+    border-bottom: 1px dashed var(--hover--color);
+}
+.button:hover {
+    background-color: var(--hover--color);
+    color: var(--background--color);
 }
 
 .showMenu {
@@ -106,35 +131,65 @@
     font-weight: 600;
     letter-spacing: 1.5px;
     cursor: pointer;
+    border: none;
+    border-radius: 2px;
+    background-color: var(--text--color2);
+    color: var(--background--color)
+}
+.showMenu:hover {
+    background-color: var(--text--color);
+
 }
 
 .cart {
-    position: relative;
+    position: absolute;
     padding: 1.4rem;
+    align-content: center;
     font-size: 1.5rem;
     text-transform: uppercase;
     font-weight: 600;
     letter-spacing: 1.5px;
     cursor: pointer;
+    border: none;
+    border-radius: 2px;
+    background-color: var(--text--color2);
+    color: var(--background--color)
 }
+
+.cart:hover {
+    background-color: var(--text--color);
+}
+
 
 .menuContainer {
     display: flex;
     width: 100%;
+    margin-bottom: 2vh;
+    padding: 0 3rem 0 3rem;
 }
 
 
 .cartContainer {
+    display: flex;
+    flex-direction: column;
     position: absolute;
+    top: 16em;
+    width: 25rem;
     height: auto;
-    width: 30rem;
-    background-color: black;
-    padding: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: var(--background--color);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.637);
 }
 
 .cartContent {
-    color: white;
+    color: var(--text--color);
     font-size: 2rem;
-    padding: 1rem;
-    margin-top: 1rem;
+    padding: 2rem;
+    border-bottom: 1px dashed var(--text--color);
+}
+.cartContent:hover {
+ background-color: var(--text--color2);
+ color: var(--background--color);
+ text-decoration: line-through;
 }

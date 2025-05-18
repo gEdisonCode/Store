@@ -20,7 +20,7 @@ function Navbar() {
     <>
       <nav className={style.mainContainer}>
         <div>
-          <h1 className={style.logo}>Logo</h1>
+          <h1 className={style.logo}>╔═STORE════╗</h1>
         </div>
         <div className={style.buttons}>
           <button onClick={darkmode} className={style.button}>

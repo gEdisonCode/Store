@@ -5,29 +5,33 @@
     padding: 2rem;
     height: 6rem;
     text-transform: uppercase;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.200);
 }
 
 .logo {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     letter-spacing: 0.5rem;
+    color: var(--text--color);
+    cursor: default;
 }
 
 .button {
     width: 6rem;
-    padding: 1rem;
+    padding: 0.6rem;
     margin-left: 1rem;
     text-transform: uppercase;
     border: none;
-    background-color: rgb(100, 100, 100);
+    background-color: var(--text--color2);
     color: white;
     border-radius: 3px;
-    font-weight: 600;
+    font-weight: 400;
+    font-size: 2rem;
     cursor: pointer;
     transition: 0.3s;
 }
 
 .button:hover {
-    background-color: crimson;
+    background-color: var(--text--color);
 }
 
 .modalContainer {
@@ -41,8 +45,7 @@
     margin: 30dvh auto;
     font-size: 2rem;
     padding: 2rem;
-    background-color: rgba(0, 0, 0, 0.493);
-    backdrop-filter: blur(10px);
+    background-color: var(--background--dark);
 }
 
 .textModal {

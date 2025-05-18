@@ -74,7 +74,7 @@ function Header() {
         <div className={style.menuContainer}>
           <div>
             <button className={style.cart} onClick={handleCart}>
-              cart
+              cart ({check.length})
             </button>
                     {showCart === true && (
           <div className={style.cartContainer}>
