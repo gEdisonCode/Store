@@ -39,5 +39,5 @@ body {
 
 ::selection {
   background-color: var(--hover--color);
-  color: white;
+  color: var(--text--dark);
 }

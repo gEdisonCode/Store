@@ -48,3 +48,33 @@
     z-index: 2;
     text-align: center;
 }
+
+@media screen and (width < 900px) {
+    .mainContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    height: 6rem;
+    text-transform: uppercase;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.200);
+}
+
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.button {
+    width: 5rem;
+    padding: 0.6rem;
+    margin-left: 0.5rem;
+    font-size: 2rem;
+}
+
+.modalContainer {
+    font-size: 2rem;
+    width: 90vw;
+}
+}

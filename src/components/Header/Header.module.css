@@ -232,3 +232,53 @@
     text-align: center;
     align-content: center;
 }
+
+
+
+
+@media screen and (width < 900px) {
+
+    .menuButton {
+        width: 80vw;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 5px;
+    }
+
+    .button {
+        width: 80vw;
+    }
+
+    .showMenu {
+        position: fixed;
+        top: 5em;
+        right: 1em;
+    }
+
+    .cart {
+        position: fixed;
+        top: 5em;
+        left: 1em;
+    }
+.cartContent:hover {
+    text-decoration: none;
+}
+    .cartContainer {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80vw;
+    }
+
+    .buyModal {
+        width: 90vw;
+        padding: 1rem;
+        font-size: 4em;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
