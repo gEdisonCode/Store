@@ -35,20 +35,16 @@
 }
 
 .modalContainer {
-    display: flex;
-    flex-direction: column;
     position: absolute;
-    width: 100%;
-    margin: auto;
-    height: auto;
-    text-align: center;
-    margin: 30dvh auto;
-    font-size: 2rem;
+    background-color: var(--background--color);
+    color: var(--text--color);
     padding: 2rem;
-    background-color: var(--background--dark);
-}
-
-.textModal {
-    max-width: 50%;
-    margin: auto;
+    font-size: 3rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    border: 3px solid var(--text--color);
+    z-index: 2;
+    text-align: center;
 }

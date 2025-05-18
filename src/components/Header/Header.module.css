@@ -1,4 +1,5 @@
 .mainContainer {
+    position: relative;
     max-width: 1400px;
     margin: auto;
     display: flex;
@@ -24,7 +25,7 @@
     margin-bottom: 2.5em;
     border: 4px solid var(--hover--color);
     border-radius: 2px;
-    
+
 }
 
 .imgContainer {
@@ -45,7 +46,7 @@
     text-align: center;
     align-content: center;
     line-height: 3rem;
-    
+
 }
 
 .title {
@@ -103,7 +104,7 @@
     cursor: pointer;
     background-color: var(--background--color);
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.637);
-    
+
 }
 
 .button {
@@ -117,6 +118,7 @@
     border: none;
     border-bottom: 1px dashed var(--hover--color);
 }
+
 .button:hover {
     background-color: var(--hover--color);
     color: var(--background--color);
@@ -136,6 +138,7 @@
     background-color: var(--text--color2);
     color: var(--background--color)
 }
+
 .showMenu:hover {
     background-color: var(--text--color);
 
@@ -180,16 +183,52 @@
     cursor: pointer;
     background-color: var(--background--color);
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.637);
+    max-height: 70vh;
+    overflow: scroll;
 }
 
 .cartContent {
+    text-align: center;
     color: var(--text--color);
     font-size: 2rem;
     padding: 2rem;
     border-bottom: 1px dashed var(--text--color);
 }
+
 .cartContent:hover {
- background-color: var(--text--color2);
- color: var(--background--color);
- text-decoration: line-through;
+    background-color: var(--text--color2);
+    color: var(--background--color);
+    text-decoration: line-through;
+}
+
+.buyButton {
+    text-align: center;
+    background-color: var(--text--color2);
+    color: var(--background--color);
+    font-size: 2rem;
+    padding: 1rem;
+    border-bottom: 1px dashed var(--text--color2);
+    border-radius: 0 0 5px 5px;
+}
+
+.buyButton:hover {
+    background-color: var(--text--color);
+    color: var(--background--color);
+}
+
+.buyModal {
+    position: absolute;
+    background-color: var(--background--color);
+    height: 20vh;
+    width: 40vw;
+    color: var(--text--color);
+    padding: 2rem;
+    font-size: 4em;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    border: 3px solid var(--text--color);
+    text-align: center;
+    align-content: center;
 }

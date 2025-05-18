@@ -7,6 +7,7 @@ function Header() {
   const [filter, setFilter] = useState([]);
   const [showMenu, setShowMenu] = useState(false);
   const [showCart, setShowCart] = useState(false);
+  const [showModal, setShowModal] = useState(false)
 
   function handleCheck(checked) {
     setCheck((element) =>
@@ -53,6 +54,14 @@ function Header() {
     setShowMenu(false)
   }
 
+  function buyModal() {
+    setShowModal(!showModal)
+    setTimeout(() => {
+      setShowModal(false)
+    }, 3000)
+    setCheck([])
+  }
+
   useEffect(() => {
     async function storeFetch() {
       try {
@@ -82,10 +91,17 @@ function Header() {
               <p key={index} className={style.cartContent} onClick={() => removeCart(item)}>
                 {`${item.title}`.slice(0,15)}
               </p>
+              
             ))}
+            {check.length > 0 && <p className={style.buyButton} onClick={buyModal}>BUY</p>}
+            
           </div>
         )}
           </div>
+        {showModal === true && <div className={style.buyModal}>Thanks for buying!</div>}
+        
+
+
 
           <button onClick={handleMenu} className={style.showMenu}>
             Category
