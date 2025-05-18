@@ -7,7 +7,7 @@ function Header() {
   const [filter, setFilter] = useState([]);
   const [showMenu, setShowMenu] = useState(false);
   const [showCart, setShowCart] = useState(false);
-  const [showModal, setShowModal] = useState(false)
+  const [showModal, setShowModal] = useState(false);
 
   function handleCheck(checked) {
     setCheck((element) =>
@@ -15,26 +15,22 @@ function Header() {
         ? element.filter((id) => id !== checked)
         : [...check, checked]
     );
-     setShowMenu(false)
-     setShowCart(false)
+    setShowMenu(false);
+    setShowCart(false);
   }
-
   function removeCart(element) {
-    setCheck(check.filter((item) => item.id !== element.id))
+    setCheck(check.filter((item) => item.id !== element.id));
   }
-
   function filterMan() {
     const man = store.filter((item) => item.category === "men's clothing");
     setFilter(man);
     handleMenu();
   }
-
   function filterWomen() {
     const women = store.filter((item) => item.category === "women's clothing");
     setFilter(women);
     handleMenu();
   }
-
   function filterJewlery() {
     const jewlery = store.filter((item) => item.category === "jewelery");
     setFilter(jewlery);
@@ -47,19 +43,18 @@ function Header() {
   }
   function handleMenu() {
     setShowMenu(!showMenu);
-    setShowCart(false)
+    setShowCart(false);
   }
   function handleCart() {
     setShowCart(!showCart);
-    setShowMenu(false)
+    setShowMenu(false);
   }
-
   function buyModal() {
-    setShowModal(!showModal)
+    setShowModal(!showModal);
     setTimeout(() => {
-      setShowModal(false)
-    }, 3000)
-    setCheck([])
+      setShowModal(false);
+    }, 3000);
+    setCheck([]);
   }
 
   useEffect(() => {
@@ -85,30 +80,32 @@ function Header() {
             <button className={style.cart} onClick={handleCart}>
               cart ({check.length})
             </button>
-                    {showCart === true && (
-          <div className={style.cartContainer}>
-            {check.map((item, index) => (
-              <p key={index} className={style.cartContent} onClick={() => removeCart(item)}>
-                {`${item.title}`.slice(0,15)}
-              </p>
-              
-            ))}
-            {check.length > 0 && <p className={style.buyButton} onClick={buyModal}>BUY</p>}
-            
+            {showCart === true && (
+              <div className={style.cartContainer}>
+                {check.map((item, index) => (
+                  <p
+                    key={index}
+                    className={style.cartContent}
+                    onClick={() => removeCart(item)}>
+                    {`${item.title}`.slice(0, 15)}
+                  </p>
+                ))}
+                {check.length > 0 && (
+                  <p className={style.buyButton} onClick={buyModal}>
+                    BUY
+                  </p>
+                )}
+              </div>
+            )}
           </div>
-        )}
-          </div>
-        {showModal === true && <div className={style.buyModal}>Thanks for buying!</div>}
-        
-
-
+          {showModal === true && (
+            <div className={style.buyModal}>Thanks for buying!</div>
+          )}
 
           <button onClick={handleMenu} className={style.showMenu}>
             Category
           </button>
         </div>
-
-
 
         {showMenu === true && (
           <div className={style.storeMenu}>
