@@ -139,8 +139,8 @@ function Header() {
               </div>
               <div className={style.textContainer}>
                 <h1 className={style.title}>{`${item.title}`.slice(0, 20)}</h1>
-                <h2 className={style.category}>{store[index].category}</h2>
-                <h3 className={style.price}>{store[index].price} $</h3>
+                <h2 className={style.category}>{item.category}</h2>
+                <h3 className={style.price}>{item.price} $</h3>
               </div>
               {check.some((element) => element.id === item.id) && (
                 <button className={style.checkButton}>✓</button>
